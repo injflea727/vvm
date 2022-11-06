@@ -5,7 +5,7 @@ class VM {
       "1": {
         name: "prim-part",
         contents: {
-          "bcd": {
+          "1/bcd": {
             'type': 'file',
             'filename': 'bcd',
             'path': '1/bcd'
@@ -13,6 +13,7 @@ class VM {
         }
       }
     }
+    this.bootloader = this.device.disk['1'].contents['bcd']
     this.device.exts = {}
     this.device.display = document.querySelector("div[for=" + vm.id + "]")
     this.device.execute = (lib, cmd, args) => {
@@ -47,8 +48,12 @@ class VM {
         this.device.disk[args[0].split("/")[0]].contents[args[0]].data += "\r\n " + args[1]
       } else {
         if (args[0].split("/").length -  1 > 1){
-          if (this.device.disk[args[0].split("/")[0]].contents[args[0].split("/").length - 2]){
-            if (this.device.disk[args[0].split("/")[0]].contents[args[0].split("/").length - 2].type == 'folder'){
+var carIndex = args[0].split("/").indexOf(args[0].split('/')[args[0].split('/').length]);//get  "car" index
+//remove car from the colors array
+var folder = args[0].split("/")
+folder.splice(carIndex, 1)
+          if (this.device.disk[args[0].split("/")[0]].contents[folder.join('/')]){
+            if (this.device.disk[args[0].split("/")[0]].contents[folder.join('/')].type == 'folder'){
               this.device.disk[args[0].split("/")[0]].contents[args[0]] = {
                'type': 'file',
                'filename': args[0].split('/')[args[0].split('/').length - 1],
