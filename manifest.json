@@ -1,0 +1,31 @@
+{
+  "name": "Tangy 500",
+  "description": "A virtual VM in a browser",
+  "display": "standalone",
+  "short_name": "T500",
+  "background_color": "white",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "launcher-icon-2x.svg",
+      "sizes": "42x32",
+      "type": "image/svg"
+    },
+    {
+      "src": "launcher-icon-3x.svg",
+      "sizes": "53x41",
+      "type": "image/svg"
+    },
+    {
+      "src": "launcher-icon-4x.svg",
+      "sizes": "90x68",
+      "type": "image/svg"
+    },
+    {
+      "src": "square-icon.png",
+      "sizes": "90x90",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
