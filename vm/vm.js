@@ -13,7 +13,7 @@ class VM {
         }
       }
     }
-    this.bootloader = this.device.disk['1'].contents['bcd']
+    this.bootloader = this.device.disk['1'].contents['1/bcd']
     this.device.exts = {}
     this.device.display = document.querySelector("div[for=" + vm.id + "]")
     this.device.execute = (lib, cmd, args) => {
